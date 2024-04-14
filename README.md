@@ -15,5 +15,5 @@ The setup.sh script is meant to work on a Digital Ocean Ubuntu 23.10 x64 VM.
 1. `git clone https://github.com/Jaytpa01/vps-host`
 1. `cd vps-host`
 1. `sudo chmod +x setup.sh`
-1. `./setup.sh`
-1. `docker compose up -d`
+1. `sudo ./setup.sh`
+1. `sudo docker compose up -d`
