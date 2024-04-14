@@ -4,5 +4,5 @@ if [ "${PAM_TYPE}" = "open_session" ]; then
     -H prio:high \
     -H tags:warning \
     -d "SSH login: ${PAM_USER} from ${PAM_RHOST} on $(hostname)" \
-    ntfy.jayparry.dev/alerts
+    https://ntfy.jayparry.dev/alerts
 fi
