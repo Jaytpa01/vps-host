@@ -1,0 +1,16 @@
+# ntfy server config file
+
+base-url: "https://ntfy.jayparry.dev"
+listen-http: ":2010"
+behind-proxy: true
+
+# https://docs.ntfy.sh/known-issues/?h=upstream+base+url#ios-app-not-receiving-notifications-anymore
+upstream-base-url: "https://ntfy.sh"
+
+cache-file: "/var/lib/ntfy/cache.db"
+attachment-cache-dir: "/var/lib/ntfy/attachments"
+attachment-total-size-limit: "750M"
+attachment-file-size-limit: "15M"
+attachment-expiry-duration: "2h"
+visitor-attachment-total-size-limit: "100M"
+visitor-attachment-daily-bandwidth-limit: "500M"
