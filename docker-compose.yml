@@ -12,6 +12,10 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config:/config
+    networks:
+      - caddy_network
+    depends_on:
+      - ntfy
 
   ntfy:
     image: binwiederhier/ntfy:latest
@@ -21,6 +25,8 @@ services:
       - ./ntfy/server.yml:/etc/ntfy/server.yml
     ports:
       - 2010:2010
+    networks:
+      - caddy_network
     healthcheck:
       test:
         [
@@ -31,6 +37,9 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
+
+networks:
+  caddy_network:
 
 volumes:
   caddy_data:
