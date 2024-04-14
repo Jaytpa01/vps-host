@@ -17,3 +17,10 @@ The setup.sh script is meant to work on a Digital Ocean Ubuntu 23.10 x64 VM.
 1. `sudo chmod +x setup.sh`
 1. `sudo ./setup.sh`
 1. `sudo docker compose up -d`
+
+## Setting up SSH Login Notifications
+
+1. `cd ~/vps-host`
+1. `sudo cp ntfy/ntfy-ssh-login.sh /usr/bin/`
+1. `sudo nano /usr/bin/ntfy-ssh-login.sh` and update or remove the ntfy Authorization header stub
+1. `sudo chmod +x /usr/bin/ntfy-ssh-login.sh`
