@@ -14,3 +14,6 @@ attachment-file-size-limit: "15M"
 attachment-expiry-duration: "2h"
 visitor-attachment-total-size-limit: "100M"
 visitor-attachment-daily-bandwidth-limit: "500M"
+
+auth-file: /var/lib/ntfy/auth.db
+auth-default-access: deny-all
