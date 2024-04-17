@@ -24,3 +24,9 @@ The setup.sh script is meant to work on a Digital Ocean Ubuntu 23.10 x64 VM.
 1. `sudo cp ntfy/ntfy-ssh-login.sh /usr/bin/`
 1. `sudo nano /usr/bin/ntfy-ssh-login.sh` and update or remove the ntfy Authorization header stub
 1. `sudo chmod +x /usr/bin/ntfy-ssh-login.sh`
+
+## Setting up Gatus
+
+Because we are using a token in the /gatus/config.yml, which we don't want to push to our public git repo, we first have to move the copy the config so the token isn't over written with every git pull
+
+1. `cp gatus ~/`

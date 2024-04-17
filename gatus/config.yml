@@ -1,0 +1,21 @@
+storage:
+  type: sqlite
+  path: /var/lib/gatus/data.db
+
+alerting:
+  ntfy:
+    topic: alerts
+    url: https://ntfy.jayparry.dev
+    priority: 4
+    token: YOUR_TOKEN_HERE
+    default-alert:
+      failure-threshold: 3
+      send-on-resolved: true
+
+endpoints:
+  - name: portfolio
+    group: web
+    interval: 5m
+    url: https://jayparry.dev
+    conditions:
+      - "[STATUS] == 200"

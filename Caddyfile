@@ -10,3 +10,7 @@ ntfy.jayparry.dev {
     }
     redir @httpget https://{host}{uri}
 }
+
+status.jayparry.dev {
+    reverse_proxy gatus:8080
+}
