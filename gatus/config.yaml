@@ -19,3 +19,5 @@ endpoints:
     url: https://jayparry.dev
     conditions:
       - "[STATUS] == 200"
+    alerts:
+      - type: ntfy
