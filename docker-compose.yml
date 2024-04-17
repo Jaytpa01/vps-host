@@ -43,7 +43,7 @@ services:
       - 8080:8080
     volumes:
       - gatus_data:/var/lib/gatus
-      - /etc/gatus/config.yml:/config/config.yml
+      - /etc/gatus/config.yaml:/config/config.yaml
     networks:
       - caddy_network
 
