@@ -1,7 +1,7 @@
 ntfy.jayparry.dev {
-	reverse_proxy ntfy:2010
+    reverse_proxy ntfy:2010
 
-	# Redirect HTTP to HTTPS, but only for GET topic addresses, since we want
+    # Redirect HTTP to HTTPS, but only for GET topic addresses, since we want
     # it to work with curl without the annoying https:// prefix
     @httpget {
         protocol http
