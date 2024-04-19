@@ -13,7 +13,6 @@ for NUM in $OLD_RULES; do
 done
 
 for IP in $(curl -s https://www.cloudflare.com/ips-v4/); do
-do
     sudo ufw allow from $IP to any port 80,443 proto tcp
 done
 
