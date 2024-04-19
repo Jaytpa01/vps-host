@@ -27,6 +27,6 @@ The setup.sh script is meant to work on a Digital Ocean Ubuntu 23.10 x64 VM.
 
 ## Setting up Gatus
 
-Because we are using a token in the /gatus/config.yml, which we don't want to push to our public git repo, we first have to move the copy the config so the token isn't over written with every git pull
+If you want gatus alerts sent to a ntfy topic that needs a token with write permissions:
 
-1. `cp -r gatus /etc`
+1. `echo "GATUS_NTFY_TOKEN=put_your_token_here" | sudo tee /etc/gatus/gatus.env`
