@@ -48,8 +48,6 @@ services:
       - /etc/gatus/gatus.env
     networks:
       - caddy_network
-    secrets:
-      - gatus-ntfy-token
 
 networks:
   caddy_network:
