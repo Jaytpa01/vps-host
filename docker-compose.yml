@@ -44,8 +44,8 @@ services:
     volumes:
       - gatus_data:/var/lib/gatus
       - ./gatus/config.yaml:/config/config.yaml
-    environment:
-      GATUS_NTFY_TOKEN: /run/secrets/gatus-ntfy-token
+    env_file:
+      - /etc/gatus/gatus.env
     networks:
       - caddy_network
     secrets:
@@ -60,7 +60,3 @@ volumes:
 
   ntfy_data:
   gatus_data:
-
-secrets:
-  gatus-ntfy-token:
-    file: /etc/gatus/gatus-ntfy-token.txt
