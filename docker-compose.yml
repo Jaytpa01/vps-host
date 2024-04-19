@@ -63,4 +63,4 @@ volumes:
 
 secrets:
   gatus-ntfy-token:
-    file: etc/gatus/gatus-ntfy-token.txt
+    file: /etc/gatus/gatus-ntfy-token.txt
