@@ -13,6 +13,8 @@ I went down the rabbithole, and found that there's quite a lot of discussion on 
 
 I couldn't be bothered to get Docker and UFW to work together, so I've decided to let my hosting service take care of that.
 
+**NOTE:** This relies on the fact that you're using Cloudflare to proxy all incoming requests.
+
 ---
 
 The `setup-cloudflare-firewall.sh` is a script that uses [`doctl`](https://docs.digitalocean.com/reference/doctl/) to setup a firewall that only allows inbound HTTP and HTTPS traffic from [trusted Cloudflare IP ranges](https://developers.cloudflare.com/fundamentals/concepts/cloudflare-ip-addresses/) + some other basic inbound and outbound rules (i.e SSH)
