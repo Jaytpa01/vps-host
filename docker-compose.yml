@@ -22,8 +22,6 @@ services:
     volumes:
       - ntfy_data:/var/lib/ntfy
       - ./ntfy/server.yml:/etc/ntfy/server.yml
-    ports:
-      - 2010:2010
     networks:
       - caddy_network
     healthcheck:
@@ -39,8 +37,6 @@ services:
 
   gatus:
     image: twinproduction/gatus:latest
-    ports:
-      - 8080:8080
     volumes:
       - gatus_data:/var/lib/gatus
       - ./gatus/config.yaml:/config/config.yaml
