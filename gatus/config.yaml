@@ -7,7 +7,7 @@ alerting:
     topic: alerts
     url: https://ntfy.jayparry.dev
     priority: 4
-    token: YOUR_TOKEN_HERE
+    token: "${GATUS_NTFY_TOKEN}"
     default-alert:
       failure-threshold: 3
       send-on-resolved: true
