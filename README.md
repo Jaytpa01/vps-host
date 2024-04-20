@@ -24,6 +24,12 @@ The setup.sh script is meant to work on a Digital Ocean Ubuntu 23.10 x64 VM.
 1. `sudo cp ntfy/ntfy-ssh-login.sh /usr/bin/`
 1. `sudo nano /usr/bin/ntfy-ssh-login.sh` and update or remove the ntfy Authorization header stub
 1. `sudo chmod +x /usr/bin/ntfy-ssh-login.sh`
+1. `sudo nano /etc/pam.d/sshd`
+
+   ```bash
+   # at the end of the file
+   session optional pam_exec.so /usr/bin/ntfy-ssh-login.sh
+   ```
 
 ## Setting up Gatus
 
