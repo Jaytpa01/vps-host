@@ -15,9 +15,18 @@ alerting:
 endpoints:
   - name: portfolio
     group: web
-    interval: 5m
+    interval: 1m
     url: https://jayparry.dev
     conditions:
       - "[STATUS] == 200"
+    alerts:
+      - type: ntfy
+
+  - name: bubblrs-ui
+    group: web
+    interval: 1m
+    url: https://bubblrs.com/
+    conditions:
+      - "[STATUS] == any(200, 304)"
     alerts:
       - type: ntfy
