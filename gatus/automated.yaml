@@ -1,0 +1,49 @@
+endpoints:
+  - name: perfectplay-api
+    group: automated
+    interval: 1m
+    url: https://perfectplay.automated.net.au/api/
+    conditions:
+      # can't be bothered setting up auth, just check we see expected error response
+      - "[BODY].error == no_authentication"
+      - "[BODY].error_description == pat(Couldn't*)"
+      # also check cert is valid for at least 2 more weeks
+      - "[CERTIFICATE_EXPIRATION] > 336h"
+    alerts:
+      - type: ntfy
+
+  - name: perfectplay-ui
+    group: automated
+    interval: 5m
+    url: https://perfectplay.automated.net.au/
+    conditions:
+      - "[STATUS] == any(200, 304)"
+    alerts:
+      - type: ntfy
+
+  - name: accounts
+    group: automated
+    interval: 1m
+    url: https://accounts.automated.net.au/
+    conditions:
+      - "[BODY].status == ok"
+    alerts:
+      - type: ntfy
+
+  - name: hydra
+    group: automated
+    interval: 1m
+    url: https://hydra.automated.net.au/health/alive
+    conditions:
+      - "[BODY].status == ok"
+    alerts:
+      - type: ntfy
+
+  - name: central
+    group: automated
+    interval: 1m
+    url: https://central.automated.net.au/health/alive
+    conditions:
+      - "[BODY].status == ok"
+    alerts:
+      - type: ntfy
