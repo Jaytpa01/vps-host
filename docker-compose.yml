@@ -39,7 +39,9 @@ services:
     image: twinproduction/gatus:latest
     volumes:
       - gatus_data:/var/lib/gatus
-      - ./gatus/config.yaml:/config/config.yaml
+      - ./gatus:/config
+    environment:
+      - GATUS_CONFIG_PATH=/config
     env_file:
       - /etc/gatus/gatus.env
     networks:
