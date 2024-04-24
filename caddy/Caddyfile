@@ -1,20 +1,32 @@
 ntfy.jayparry.dev {
-    reverse_proxy ntfy:2010
+	reverse_proxy ntfy:2010
 
-    # Redirect HTTP to HTTPS, but only for GET topic addresses, since we want
-    # it to work with curl without the annoying https:// prefix
-    @httpget {
-        protocol http
-        method GET
-        path_regexp ^/([-_a-z0-9]{0,64}$|docs/|static/)
-    }
-    redir @httpget https://{host}{uri}
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+	}
+
+	# Redirect HTTP to HTTPS, but only for GET topic addresses, since we want
+	# it to work with curl without the annoying https:// prefix
+	@httpget {
+		protocol http
+		method GET
+		path_regexp ^/([-_a-z0-9]{0,64}$|docs/|static/)
+	}
+	redir @httpget https://{host}{uri}
 }
 
 status.jayparry.dev {
-    reverse_proxy gatus:8080
+	reverse_proxy gatus:8080
+
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+	}
 }
 
 berynet.jayparry.dev {
-    reverse_proxy wireguard:2053
+	reverse_proxy wireguard:51821
+
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+	}
 }
