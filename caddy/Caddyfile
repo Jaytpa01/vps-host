@@ -14,3 +14,7 @@ ntfy.jayparry.dev {
 status.jayparry.dev {
     reverse_proxy gatus:8080
 }
+
+berynet.jayparry.dev {
+    reverse_proxy wireguard:2053
+}
