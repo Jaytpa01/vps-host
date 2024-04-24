@@ -7,8 +7,8 @@ services:
       - ./gatus:/config
     environment:
       - GATUS_CONFIG_PATH=/config
-    # env_file:
-    #   - /etc/gatus/gatus.env
+    env_file:
+      - /etc/gatus/gatus.env
     networks:
       - caddy_network
 
