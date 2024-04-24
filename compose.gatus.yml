@@ -1,0 +1,16 @@
+services:
+  gatus:
+    image: twinproduction/gatus:latest
+    container_name: gatus
+    volumes:
+      - gatus_data:/var/lib/gatus
+      - ./gatus:/config
+    environment:
+      - GATUS_CONFIG_PATH=/config
+    # env_file:
+    #   - /etc/gatus/gatus.env
+    networks:
+      - caddy_network
+
+volumes:
+  gatus_data:
