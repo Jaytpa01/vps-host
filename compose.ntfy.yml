@@ -1,0 +1,22 @@
+services:
+  ntfy:
+    image: binwiederhier/ntfy:latest
+    command: serve
+    volumes:
+      - ntfy_data:/var/lib/ntfy
+      - ./ntfy/server.yml:/etc/ntfy/server.yml
+    networks:
+      - caddy_network
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "wget -q --tries=1 http://localhost:2010/v1/health -O - | grep -Eo '\"healthy\"\\s*:\\s*true' || exit 1",
+        ]
+      interval: 300s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  ntfy_data:
