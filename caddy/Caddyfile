@@ -23,7 +23,7 @@ status.jayparry.dev {
 	}
 }
 
-berynet.jayparry.dev {
+wg.jayparry.dev {
 	reverse_proxy wireguard:51821
 
 	tls {
