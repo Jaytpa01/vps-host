@@ -7,7 +7,7 @@ services:
       - TUNNEL_TOKEN=$CF_TUNNEL_TOKEN
     command: tunnel --no-autoupdate run
     networks:
-      - backend
+      - caddy
     restart: unless-stopped
 
 networks:
