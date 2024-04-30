@@ -4,9 +4,9 @@ services:
     command: serve
     volumes:
       - ntfy_data:/var/lib/ntfy
-      - ./ntfy/server.yml:/etc/ntfy/server.yml
+      - ./config/server.yml:/etc/ntfy/server.yml
     networks:
-      - caddy_network
+      - caddy
     healthcheck:
       test:
         [
@@ -17,6 +17,10 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
+
+networks:
+  caddy:
+    external: true
 
 volumes:
   ntfy_data:

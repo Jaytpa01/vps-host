@@ -1,7 +1,6 @@
 services:
   caddy:
     build:
-      context: ./caddy
       dockerfile: Dockerfile
     environment:
       - CF_API_TOKEN=$CF_API_TOKEN
@@ -12,14 +11,15 @@ services:
       - 443:443
       - 443:443/udp
     volumes:
-      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config:/config
     networks:
-      - caddy_network
+      - caddy
 
 networks:
-  caddy_network:
+  caddy:
+    external: true
 
 volumes:
   caddy_data:

@@ -1,9 +1,12 @@
-ntfy.jayparry.dev {
-	reverse_proxy ntfy:2010
-
+(cloudflare-dns) {
 	tls {
 		dns cloudflare {env.CF_API_TOKEN}
 	}
+}
+
+ntfy.jayparry.dev {
+	import cloudflare-dns
+	reverse_proxy ntfy:2010
 
 	# Redirect HTTP to HTTPS, but only for GET topic addresses, since we want
 	# it to work with curl without the annoying https:// prefix
@@ -16,17 +19,6 @@ ntfy.jayparry.dev {
 }
 
 status.jayparry.dev {
+	import cloudflare-dns
 	reverse_proxy gatus:8080
-
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-	}
-}
-
-berynet.jayparry.dev {
-	reverse_proxy wireguard:51821
-
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-	}
 }

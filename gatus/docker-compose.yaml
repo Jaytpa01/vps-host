@@ -4,13 +4,17 @@ services:
     container_name: gatus
     volumes:
       - gatus_data:/var/lib/gatus
-      - ./gatus:/config
+      - ./config:/config
     environment:
       - GATUS_CONFIG_PATH=/config
     env_file:
       - /etc/gatus/gatus.env
     networks:
-      - caddy_network
+      - caddy
+
+networks:
+  caddy:
+    external: true
 
 volumes:
   gatus_data:
