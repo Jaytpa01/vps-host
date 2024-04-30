@@ -1,0 +1,15 @@
+services:
+  cloudflared:
+    container_name: cloudflare-tunnel
+    image: cloudflare/cloudflared:latest
+    environment:
+      # set TUNNEL_TOKEN to the CF_TUNNEL_TOKEN on the host
+      - TUNNEL_TOKEN=$CF_TUNNEL_TOKEN
+    command: tunnel --no-autoupdate run
+    networks:
+      - backend
+    restart: unless-stopped
+
+networks:
+  caddy:
+    external: true

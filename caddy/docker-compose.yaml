@@ -6,10 +6,10 @@ services:
       - CF_API_TOKEN=$CF_API_TOKEN
     container_name: caddy
     restart: unless-stopped
-    ports:
-      - 80:80
-      - 443:443
-      - 443:443/udp
+    # ports:
+    # - 80:80
+    # - 443:443
+    # - 443:443/udp
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
