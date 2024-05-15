@@ -11,6 +11,7 @@ services:
       - /etc/gatus/gatus.env
     networks:
       - caddy
+    restart: unless-stopped
 
 networks:
   caddy:

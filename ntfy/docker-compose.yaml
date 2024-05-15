@@ -7,6 +7,7 @@ services:
       - ./config/server.yml:/etc/ntfy/server.yml
     networks:
       - caddy
+    restart: unless-stopped
     healthcheck:
       test:
         [
